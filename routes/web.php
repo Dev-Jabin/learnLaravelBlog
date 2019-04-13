@@ -21,6 +21,9 @@ Route::prefix('learnLaravel')->group(function (){
 	Route::get('page/{id}', function ($id) {
 		return view('page.show', ['id' => $id]);
 	})->where('id', '[0-9]+');
+
+	Route::get('/form', 'RequestController@preForm');
+	Route::post('/form', 'RequestController@form')->name('form.submit');
 });
 
 
