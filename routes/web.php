@@ -12,9 +12,15 @@
 */
 
 Route::prefix('learnLaravel')->group(function (){
-		Route::get('/index', function () {
-	    return view('welcome');
+	Route::get('/index', function () {
+		return view('welcome');
 	});
+	Route::get('/', function () {
+		return view('welcome');
+	});
+	Route::get('page/{id}', function ($id) {
+		return view('page.show', ['id' => $id]);
+	})->where('id', '[0-9]+');
 });
 
 
